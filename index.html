@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - 设计师作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* 导航栏 */
+        nav {
+            background: #fff;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #6C63FF;
+        }
+
+        /* 头部区域 */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s 0.2s backwards;
+        }
+
+        /* 作品展示区 */
+        .portfolio {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .project-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 视频展示区 */
+        .video-section {
+            background: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+            background: #f0f0f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        /* 关于我区域 */
+        .about {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .about h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .about p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* 联系方式 */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: white;
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#portfolio">作品集</a></li>
+            <li><a href="#videos">视频</a></li>
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#contact">联系方式</a></li>
+        </ul>
+    </nav>
+
+    <!-- 头部介绍 -->
+    <header id="home">
+        <h1>Your Name</h1>
+        <p>UI/UX设计师 | 视觉设计 | 品牌设计<br>
+        用设计创造美好体验</p>
+    </header>
+
+    <!-- 作品展示 -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">我的作品</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    项目图片占位
+                    <!-- 替换为: <img src="images/project1.jpg" alt="项目1" style="width:100%;height:100%;object-fit:cover;"> -->
+                </div>
+                <div class="project-info">
+                    <h3>项目标题1</h3>
+                    <p>这里描述你的项目，包括设计理念、使用的工具、解决的问题等。可以添加更多细节来展示你的思考过程。</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    项目图片占位
+                </div>
+                <div class="project-info">
+                    <h3>项目标题2</h3>
+                    <p>另一个精彩项目的描述。展示你的设计能力和创意思维。</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    项目图片占位
+                </div>
+                <div class="project-info">
+                    <h3>项目标题3</h3>
+                    <p>第三个项目的介绍。持续展示你的专业技能。</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    项目图片占位
+                </div>
+                <div class="project-info">
+                    <h3>项目标题4</h3>
+                    <p>更多作品展示，建立完整的作品集。</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    项目图片占位
+                </div>
+                <div class="project-info">
+                    <h3>项目标题5</h3>
+                    <p>展示你的多样化设计能力。</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    项目图片占位
+                </div>
+                <div class="project-info">
+                    <h3>项目标题6</h3>
+                    <p>最后一个精选项目案例。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视频展示 -->
+    <section class="video-section" id="videos">
+        <h2 class="section-title">设计过程视频</h2>
+        <div class="video-container">
+            在这里嵌入你的视频
+            <!-- 
+            替换为YouTube嵌入代码，例如：
+            <iframe width="100%" height="100%" 
+                src="https://www.youtube.com/embed/你的视频ID" 
+                frameborder="0" allowfullscreen>
+            </iframe>
+            
+            或者使用本地视频：
+            <video width="100%" height="100%" controls>
+                <source src="videos/demo.mp4" type="video/mp4">
+            </video>
+            -->
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="about" id="about">
+        <h2>关于我</h2>
+        <p>你好！我是[你的名字]，一名充满热情的设计师。</p>
+        <p>我专注于UI/UX设计、品牌视觉和数字产品设计。拥有[X]年的设计经验，曾与多家知名企业合作，帮助他们打造出色的用户体验。</p>
+        <p>我相信好的设计不仅要美观，更要能解决实际问题。我的设计哲学是：简洁、直观、有温度。</p>
+        <p><strong>技能专长：</strong></p>
+        <ul>
+            <li>UI/UX设计</li>
+            <li>品牌视觉设计</li>
+            <li>交互设计</li>
+            <li>原型制作</li>
+            <li>用户研究</li>
+        </ul>
+        <p><strong>常用工具：</strong> Figma, Sketch, Adobe Creative Suite, Principle, Protopie</p>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact" id="contact">
+        <h2>让我们合作</h2>
+        <p>如果你对我的作品感兴趣，或者有项目合作意向，欢迎联系我！</p>
+        <div class="social-links">
+            <a href="mailto:your.email@example.com">邮箱</a>
+            <a href="https://www.behance.net/yourname" target="_blank">Behance</a>
+            <a href="https://dribbble.com/yourname" target="_blank">Dribbble</a>
+            <a href="https://www.instagram.com/yourname" target="_blank">Instagram</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
